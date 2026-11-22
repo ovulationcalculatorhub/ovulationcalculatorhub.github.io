@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planning With an Ovulation Calendar | Ovulation Calculator</title>
+<meta name="description" content="How to build a simple ovulation calendar, keep it accurate month to month, and use it to plan ahead.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+body{font-family:Georgia,'Times New Roman',serif;color:#3f2d33;background:#fff7f8}
+a{color:#be185d}header{background:#9d174d;color:#fff;padding:18px 0}
+.header-in{max-width:1020px;margin:0 auto;padding:0 20px;text-align:center}
+.logo{font-size:clamp(24px,5vw,30px);font-weight:700;color:#fff;text-decoration:none}
+.logo span{color:#fbcfe8}
+nav{margin-top:8px}nav a{color:#fbcfe8;margin:0 10px;font-weight:600;font-size:15px;text-decoration:none}
+nav a:hover{color:#fff;text-decoration:underline}
+.hero{background:linear-gradient(180deg,#9d174d,#db2777);color:#fff;padding:clamp(28px,6vw,52px) 20px 40px;text-align:center}
+.hero h1{font-size:clamp(28px,6vw,40px);line-height:1.2;margin:0 0 10px}
+.hero p{font-size:clamp(15px,3vw,18px);max-width:620px;margin:0 auto 22px;color:#fce7f3}
+.calc{background:#fff;color:#3f2d33;max-width:580px;margin:0 auto;padding:clamp(18px,4vw,28px);border-radius:18px;box-shadow:0 14px 34px rgba(0,0,0,.22);text-align:left}
+.calc h2{font-size:20px;margin:0 0 14px;color:#9d174d}
+.field{margin-bottom:14px}.field label{display:block;font-size:14px;font-weight:700;margin-bottom:5px;color:#6b4a55}
+.btn{background:#db2777;color:#fff}.btn:hover{background:#be185d}
+.result{background:#fdf2f8;border:1px solid #f9a8d4}
+.card{background:#fff;border:1px solid #fbcfe8;border-radius:14px;padding:22px;margin-bottom:20px}
+.acard{background:#fff;border:1px solid #fbcfe8}
+.acard h3 a{color:#9d174d;text-decoration:none}.acard p{color:#6b4a55}
+.toolgrid a{background:#fff;border:1px solid #fbcfe8;color:#9d174d}
+.toolgrid a:hover{border-color:#db2777;background:#fdf2f8}
+.tip{background:#fff1f2;border-left:4px solid #db2777}
+h2{color:#9d174d}footer{color:#8a6b74;font-size:14px;margin-top:30px;padding:20px 0;text-align:center}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;line-height:1.65;font-size:16px}
+img{max-width:100%;height:auto}
+input,select,textarea,button{font-family:inherit;font-size:16px}
+input,select{width:100%;min-height:44px;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px}
+button,.btn{min-height:44px;padding:12px 22px;border:0;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.acard{overflow:hidden;border-radius:12px}
+.acard img{width:100%;height:160px;object-fit:cover;display:block}
+.acard div{padding:14px}
+.acard h3{margin:0 0 6px;font-size:16px;line-height:1.35}
+.acard p{margin:0;font-size:14px}
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.toolgrid a{padding:18px;border-radius:12px;text-decoration:none;display:block;font-weight:700}
+.result{padding:16px;border-radius:10px;margin-top:16px}
+.result .big{font-size:clamp(22px,5vw,28px);font-weight:800}
+.tip{padding:14px 16px;border-radius:10px;margin:18px 0}
+.faq h3{font-size:16px;margin:18px 0 4px}
+article img.heroimg{width:100%;max-height:380px;object-fit:cover;border-radius:12px;display:block}
+@media(max-width:640px){
+  .wrap{padding:0 14px}
+  .grid,.toolgrid{grid-template-columns:1fr}
+  .acard img{height:180px}
+  nav a{margin:0 6px}
+}
+@media(max-width:480px){
+  body{font-size:16px}
+  .wrap{padding:0 12px}
+  h1{font-size:26px !important}
+  .btn,button{width:100%}
+  .acard img{height:170px}
+}
+</style></head>
+<body><header><div class="header-in"><a class="logo" href="../index.html">Ovulation Calculator</a><nav><a href="../index.html">Home</a><a href="../tools/ovulation-calculator.html">Calculator</a><a href="../about.html">About</a><a href="../contact.html">Contact</a></nav></div></header><main class="wrap"><article class="card" style="margin-top:20px"><img class="heroimg" src="../images/ovulation-calendar-planning.jpg" alt="Planning With an Ovulation Calendar">
+<h1>Planning With an Ovulation Calendar</h1><p><em>How to build a simple ovulation calendar, keep it accurate month to month, and use it to plan ahead.</em></p>
+<p>An ovulation calendar is a simple monthly record that shows your expected period, fertile window and ovulation day at a glance. It can live on paper, in a spreadsheet, or in an app, and it takes only a few minutes a month to keep. The value is not in the calendar itself but in the pattern it reveals over time: after three or four months you can see how regular your cycles are, when your fertile window usually falls, and whether anything is changing. This guide shows how to set one up and keep it useful.</p>
+<h2>What to put on the calendar</h2><p>Start with the basics: the first day of each period, marked clearly. From that date and your average cycle length, add your estimated ovulation day and shade the six fertile days. Also note anything that might affect the cycle: illness, travel, unusual stress, a change in exercise, or medicines. Add body signs as you notice them, such as the first day of clear, stretchy mucus or a positive ovulation test. Keep the symbols simple and consistent, so a glance at the month tells the story without a key.</p>
+<h2>Paper, spreadsheet or app</h2><p>Paper works well if you like writing things down and want no digital record. A wall calendar in the bathroom or bedroom is easy to update daily. A spreadsheet gives you automatic averages: enter each period start date and let it calculate the gaps and the average cycle length. An app does the same and adds reminders, but check its privacy policy before storing sensitive health data. The best method is the one you will actually keep using, so choose for habit, not for features.</p>
+<h2>Keeping it accurate each month</h2><p>The calendar is only as good as its latest entry. On the first day of each period, update the start date immediately, and recalculate your average cycle length from the last three cycles. If a cycle was unusually long or short, note why if you know: an illness or a stressful month explains a lot. Do not let an old average run the calendar for months, because a stale average produces stale predictions. A five-minute monthly update keeps the calendar honest.</p>
+<h2>Reading the pattern over time</h2><p>After three or four months, look at the calendar as a whole. Are your cycles within a few days of each other, or do they swing widely? Does your fertile window fall on similar days each month? Do body signs line up with the calendar, or do they consistently come earlier or later? If the signs come later than the calendar predicts, your average cycle length may be longer than you thought. Adjust the average and see whether the next month fits better. This slow correction is how a calendar becomes personal and accurate.</p>
+<h2>Using the calendar to plan</h2><p>Once the pattern is clear, the calendar becomes a planning tool. If you are trying to conceive, you can see the fertile window weeks ahead and plan around it. If you are planning a holiday or an important event, you can see when your period is likely to fall, while remembering that the prediction is an estimate. Keep the calendar even when you are not trying to conceive, because a sudden change in the pattern is often the first sign that something needs attention, and a doctor will always ask for your recent cycle history.</p>
+<h2>Setting up your calendar in ten minutes</h2><p>Set up a calendar in ten minutes with three steps. First, write down the start dates of your last three periods and work out the average gap between them. Second, mark the next three months: for each month, shade the six fertile days and mark the estimated ovulation day, using the average cycle length and the latest period date. Third, add a simple key for body signs, such as a dot for clear mucus and a star for a positive test, and keep a pen by the calendar so you can add them daily. Update the calendar on the first day of each period, recalculate the average from the last three cycles, and the calendar stays honest. Ten minutes of setup and two minutes a month is all it takes.</p>
+<div class="tip"><strong>Tip:</strong> Update the calendar on the first day of each period, and recalculate your average from the last three cycles — a stale average produces stale predictions.</div>
+<h2>Frequently Asked Questions</h2><div class="faq"><h3>What should I record on an ovulation calendar?</h3><p>Period start dates, estimated ovulation day, the six fertile days, body signs like mucus changes, and anything unusual such as illness or travel.</p><h3>Is a paper calendar good enough?</h3><p>Yes. Paper, a spreadsheet or an app all work. The best method is the one you will keep using every month.</p><h3>How many months until the pattern is clear?</h3><p>About three to four months of records usually show whether your cycles are regular and when your fertile window falls.</p></div>
+<h2>Related Guides</h2><ul><li><a href="how-to-use-ovulation-calculator.html">How to Use an Ovulation Calculator</a></li><li><a href="understanding-your-menstrual-cycle.html">Understanding Your Menstrual Cycle</a></li><li><a href="fertile-window-explained.html">Your Fertile Window Explained</a></li></ul>
+<p><a href="../index.html">&larr; Back to home</a></p></article></main><footer><p>Ovulation Calculator — free online calculators and practical guides. <a href="../about.html">About</a> | <a href="../contact.html">Contact</a> | <a href="../privacy.html">Privacy Policy</a> | <a href="../disclaimer.html">Disclaimer</a></p><p>Results are estimates for general information only.</p></footer></body></html>
